@@ -8,12 +8,11 @@ import { Resposta } from '../models/Resposta';
   providedIn: 'root'
 })
 export class OnibusService {
-  dataRioUrl:string = 'http://dadosabertos.rio.rj.gov.br/apiTransporte/apresentacao/rest/index.cfm/obterTodasPosicoes';
+  dataRioUrl:string = 'http://localhost:8080/api/onibus';
 
   constructor(private http:HttpClient) { }
 
-  getOnibuses():Observable<Resposta> {
-    let a = this.http.get<Resposta>(this.dataRioUrl);
-    return a;
+  getOnibuses():Observable<Onibus[]> { 
+    return this.http.get<Onibus[]>(this.dataRioUrl);
   }
 }

@@ -2,13 +2,14 @@
     <div class="ui-g-12">
         <p-gmap #gmap [options]="options" [overlays]="overlays" [style]="{'width':'100%','height':'300px'}" ></p-gmap>
     </div>
-    <div class="ui-g-12 ui-md-2">{{(!rangevalues) ? "" :fdatahora[  rangevalues[0] ]}}</div> 
+    <div class="ui-g-12 ui-md-2">{{ (!rangevalues) ? "" : ( fdatahora[rangevalues[0]] | date : 'short' ) }}</div> 
     <div class="ui-g-12 ui-md-8 ">
         <p-slider [min]="0" [max]="!this.onibuses || this.onibuses.length" [ngModel]="rangevalues" (ngModelChange)="changeRange($event)" [range]="true" [style]="{'height':'1em'}"></p-slider>
     </div>
-    <div class="ui-g-12 ui-md-2">{{(!rangevalues) ? "" :fdatahora[ rangevalues[rangevalues.length -1] ] }}</div> 
+    <div class="ui-g-12 ui-md-2">{{ (!rangevalues) ? "" : ( fdatahora[rangevalues[rangevalues.length-1]] | date:'short') }}</div> 
     <div class="ui-g-12">
         <p-table [value]="fOnibuses" [paginator]="true" [rows]="10">
+            <ng-template pTemplate="caption">Lista de onibus com velocidade superior a 60km/h</ng-template>
             <ng-template pTemplate="header">
                 <tr>
                     <td>Data hora</td>
