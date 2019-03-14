@@ -6,6 +6,13 @@ import { OnibusComponent } from './components/onibus/onibus.component';
 import { HttpClientModule } from '@angular/common/http';
 import { TableModule } from 'primeng/table';
 import {GMapModule} from 'primeng/gmap';
+import {CalendarModule} from 'primeng/calendar';
+import { FormsModule } from '@angular/forms';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import {SliderModule} from 'primeng/slider';
+
+
+declare var google: any;
 @NgModule({
   declarations: [
     AppComponent,
@@ -15,8 +22,11 @@ import {GMapModule} from 'primeng/gmap';
     BrowserModule,
     HttpClientModule,
     GMapModule,
-    TableModule
-
+    TableModule,
+    CalendarModule,
+    FormsModule,
+    BrowserAnimationsModule,
+    SliderModule
   ],
   providers: [],
   bootstrap: [AppComponent]
